@@ -29,9 +29,17 @@ void jump()  { //starts here
 
 }*/
 
+
+// pomija pisanie std:: przed wartościami w strefie std
 using namespace std;
 
+// klasa Person
+// Private -> dostęp tylko z klasy
+// Protected -> dostęp z klasy i klas które dziedziczą
+// Public -> dostęp wszędzie
 class Person{
+	private:
+
 	protected:
 		string pesel;
 
@@ -39,17 +47,24 @@ class Person{
 		string name;
 		string surname;
 
+		// Konstruktor(potem będzie więcej)
 		Person(){}
 
+		// Funkcja
+		// void -> brak zwracania danych
 		void SetPesel(string _pesel){
 			this->pesel = _pesel;
 		}
+		// Funkcja
+		// string -> Funkcja zwraca wartoś typu string
 		string GetPesel(){
+			// return zwraca wartość którą damy po nim
 			return this->pesel;
 		}
 };
 
-
+// klasa Worker
+// dziedziczy z klasy Person, gdzie klasa Person jest publiczna
 class Worker : public Person{
 	public:
 		int salary;
@@ -59,7 +74,8 @@ class Worker : public Person{
 		}
 };
 
-
+// klasa z funkcją statczną
+// funckje statyczne są dostępne z całego programu
 class Math{
 	public:
 		static int add(int x, int y){
@@ -67,6 +83,9 @@ class Math{
 		};
 };
 
+// zmienne i funckje znajdujące się w namepsace-ie
+// można wywołać pisząc nazwę namespece-a przed funkcją
+// dla tego "test::"
 namespace test {
 void print() {
   std::string world = "Hello World!";
@@ -77,6 +96,8 @@ void print() {
 
 using namespace test;
 
+
+// początek programu. Musi istnieć aby odpalić program
 int main() {
   /*char c = '0';
 
@@ -105,8 +126,6 @@ int main() {
 }
 
 /*
-
-
 // c++
 #include <iostream>
 
